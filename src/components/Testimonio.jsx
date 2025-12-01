@@ -20,7 +20,7 @@ export function Testimonio(props) {
         </div>
         <div className="col-auto d-none d-lg-block">
           <img
-            className="bd-placeholder-img"
+            className="h-100 object-fit-cover border rounded"
             src={props.img}
             alt="foro de perfil"
           />

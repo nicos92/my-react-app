@@ -1,11 +1,19 @@
-export function NavBarFixed() {
+import PropTypes from 'prop-types'
+
+export function NavBarFixed({ onNavigate }) {
+  // Define los enlaces y su clave de página
+  const navLinks = [
+    { key: 'home', label: 'Inicio' },
+    { key: 'about', label: 'Acerca de' },
+    { key: 'products', label: 'Producto' },
+  ]
   return (
     <nav
       className="navbar navbar-expand-lg bg-body-tertiary rounded fixed-top"
-      aria-label="Thirteenth navbar example"
+      aria-label="Eleventh navbar example"
     >
       <div className="container-fluid">
-        <a className="navbar-brand col-lg-3 me-0" href="#">
+        <a className="navbar-brand" onClick={() => onNavigate('home')}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -54,33 +62,28 @@ export function NavBarFixed() {
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarsExample11"
-          aria-controls="navbarsExample11"
+          data-bs-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div
-          className="collapse navbar-collapse d-lg-flex"
-          id="navbarsExample11"
-        >
-          <ul className="navbar-nav col-lg-6 justify-content-lg-center">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Articulos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Disabled
-              </a>
-            </li>
+        <div className="collapse navbar-collapse" id="navbarsExample09">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {navLinks.map(({ key, label }) => (
+              <li key={key} className="nav-item">
+                <a
+                  key={key}
+                  onClick={() => onNavigate(key)}
+                  className="nav-link"
+                  aria-current="page"
+                  href="#"
+                >
+                  {label}
+                </a>
+              </li>
+            ))}
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
@@ -109,11 +112,44 @@ export function NavBarFixed() {
               </ul>
             </li>
           </ul>
-          <div className="d-lg-flex col-lg-3 justify-content-lg-end float-end">
-            <button className="btn btn-primary">Button</button>
-          </div>
+
+          <span className="me-5 px-4" id="basic-addon1">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  @Usuario
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Another action
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="#">
+                      Something else here
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </span>
         </div>
       </div>
     </nav>
   )
+}
+
+NavBarFixed.propTypes = {
+  onNavigate: PropTypes.func.isRequired,
 }

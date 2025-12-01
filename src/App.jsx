@@ -1,8 +1,12 @@
+import { useState } from 'react'
 import './App.css'
 import { NavBarFixed } from './components/NavBarFixed.jsx'
 import { Testimonio } from './components/Testimonio.jsx'
 import { Titulo } from './components/Titulo.jsx'
+import AboutPage from './components/AboutPage.jsx'
 import CTestimonio from './models/CTestimonio.jsx'
+import { Footer } from './components/Footer.jsx'
+import { Producs } from './components/Productos.jsx'
 
 const testimonios = [
   new CTestimonio(
@@ -23,26 +27,55 @@ const testimonios = [
   ),
 ]
 
+const verTestimonios = () => {
+  return (
+    <section className="container p-2">
+      <Titulo />
+      <div className="row mb-2">
+        {testimonios.map((testimonio, index) => (
+          <Testimonio
+            key={index}
+            nombre={testimonio.nombre}
+            apellido={testimonio.apellido}
+            empresa={testimonio.empresa}
+            cargo={testimonio.cargo}
+            testimonio={testimonio.testimonio}
+            img={testimonio.img}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+// Función de callback para cambiar la página
+
 function App() {
+  // 1. Estado para manejar la página actual
+  const [currentPage, setCurrentPage] = useState('home')
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return verTestimonios()
+      case 'about':
+        return <AboutPage />
+      case 'products':
+        return <Producs />
+      default:
+        return verTestimonios() // Por defecto, renderiza la página de inicio
+    }
+  }
+
+  const handleNavigate = (page) => {
+    setCurrentPage(page)
+    // Opcional: Desplazar al inicio de la página para una mejor UX
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   return (
     <div>
-      <NavBarFixed />
-      <main className="container p-2">
-        <Titulo />
-        <div className="row mb-2">
-          {testimonios.map((testimonio, index) => (
-            <Testimonio
-              key={index}
-              nombre={testimonio.nombre}
-              apellido={testimonio.apellido}
-              empresa={testimonio.empresa}
-              cargo={testimonio.cargo}
-              testimonio={testimonio.testimonio}
-              img={testimonio.img}
-            />
-          ))}
-        </div>
-      </main>
+      <NavBarFixed onNavigate={handleNavigate} />
+      <main className="container p-2">{renderPage()}</main>
+      <Footer />
     </div>
   )
 }
