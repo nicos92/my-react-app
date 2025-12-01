@@ -1,3 +1,4 @@
+import '../styles/products.css'
 export function Producs() {
   return (
     <section>
@@ -34,7 +35,7 @@ export function Producs() {
           <div
             className="bg-body-tertiary shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -48,7 +49,7 @@ export function Producs() {
           <div
             className="bg-dark shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -64,7 +65,7 @@ export function Producs() {
           <div
             className="bg-dark shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -78,7 +79,7 @@ export function Producs() {
           <div
             className="bg-body-tertiary shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -94,7 +95,7 @@ export function Producs() {
           <div
             className="bg-body shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -108,7 +109,7 @@ export function Producs() {
           <div
             className="bg-body shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -124,7 +125,7 @@ export function Producs() {
           <div
             className="bg-body shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}
@@ -138,7 +139,7 @@ export function Producs() {
           <div
             className="bg-body shadow-sm mx-auto"
             style={{
-              width: '80%',
+              width: '100%',
               height: '300px',
               borderRadius: '21px 21px 0 0',
             }}

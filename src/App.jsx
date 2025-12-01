@@ -72,9 +72,9 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
   return (
-    <div>
+    <div className="d-flex flex-column ">
       <NavBarFixed onNavigate={handleNavigate} />
-      <main className="container p-2">{renderPage()}</main>
+      <main className="container p-2 h-100">{renderPage()}</main>
       <Footer />
     </div>
   )
